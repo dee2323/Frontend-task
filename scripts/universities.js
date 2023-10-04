@@ -1,5 +1,6 @@
 let universities = [];
 let tBody = document.querySelector('tbody');
+const loading = document.getElementById('loading');
 const url = 'http://universities.hipolabs.com/search?country=United+States';
 ///////////////////////////////////////
 fetch(url)
@@ -12,6 +13,7 @@ fetch(url)
     .then(data => {
         universities = data.slice(0, 20);
         // console.log(universities[9])
+        loading.style.display = 'none';
         displayUniversities();
     })
     .catch(error => {
